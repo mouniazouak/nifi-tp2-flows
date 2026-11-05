@@ -145,35 +145,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "aff001c4-a5f0-34d0-89d0-bb05748214fe",
-        "name" : "Calculer les attributs ",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "3cc452ab-a667-3e1c-a2b1-90ec4219e273",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "" ],
-      "source" : {
-        "groupId" : "flow-contents-group",
-        "id" : "d3d63a3a-f7ff-3257-b2d1-0f8c9c49d64c",
-        "name" : "Entrée fichier",
-        "type" : "INPUT_PORT"
-      },
-      "zIndex" : 23
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "1f085317-222e-383b-96be-58617a79eb78",
         "name" : "Quarantaine",
         "type" : "PROCESSOR"
@@ -532,6 +503,35 @@
         "type" : "PROCESSOR"
       },
       "zIndex" : 20
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "4b8c71f9-4829-314d-809f-b5967d293949",
+        "name" : "ValidateRecord",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "fa882b60-7c20-3b71-8c28-fc0871fc9bd9",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "" ],
+      "source" : {
+        "groupId" : "flow-contents-group",
+        "id" : "e17178ae-6a83-3b8b-a593-d1d9cae45f7a",
+        "name" : "Réception web",
+        "type" : "INPUT_PORT"
+      },
+      "zIndex" : 23
     } ],
     "controllerServices" : [ {
       "bulletinLevel" : "WARN",
@@ -1680,12 +1680,12 @@
       "componentType" : "INPUT_PORT",
       "concurrentlySchedulableTaskCount" : 1,
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "d3d63a3a-f7ff-3257-b2d1-0f8c9c49d64c",
-      "name" : "Entrée fichier",
+      "identifier" : "e17178ae-6a83-3b8b-a593-d1d9cae45f7a",
+      "name" : "Réception web",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 1815.3016053584322,
-        "y" : 807.732392541575
+        "x" : 528.0,
+        "y" : 928.0
       },
       "scheduledState" : "ENABLED",
       "type" : "INPUT_PORT"
@@ -1735,10 +1735,10 @@
         "Storage Class" : "STANDARD",
         "Multipart Part Size" : "5 GB",
         "Remove Tag Prefix" : "false",
-        "Object Key" : "${cible}",
+        "Object Key" : "cars/${filename}",
         "Multipart Threshold" : "5 GB",
         "Temporary Directory Multipart State" : "${java.io.tmpdir}",
-        "Bucket" : "#{bucket}",
+        "Bucket" : "bronze",
         "Multipart Upload AgeOff Interval" : "60 min",
         "AWS Credentials Provider Service" : "95d4346f-6a53-35db-bc6d-991e636f6d7a",
         "Communications Timeout" : "30 secs",
@@ -3225,6 +3225,6 @@
   "parameterProviders" : { },
   "snapshotMetadata" : {
     "flowIdentifier" : "ingestion-cars",
-    "timestamp" : 1793831256793
+    "timestamp" : 1793872989387
   }
 }
